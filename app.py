@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'super_secret_key'
 api = Api(app)
 
-JWT_EXPIRATION_DELTA = timedelta(hours=1)
+app.config['JWT_EXPIRATION_DELTA'] = timedelta(hours=1)
 jwt = JWT(app, authenticate, identity)  # /auth
 
 api.add_resource(UserRegister, '/register')
